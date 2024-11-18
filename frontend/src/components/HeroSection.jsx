@@ -32,7 +32,7 @@ const HeroSection = () => {
           </div>
 
           <div className="space-y-6 md:col-span-5 text-center">
-            <span className="mx-auto px-6 py-2 rounded-full bg-gradient-to-r from-[#8d60e8] to-[#7943d7] text-white font-medium text-2xl">
+            <span className="mx-auto px-6 py-2 rounded-full bg-gradient-to-r from-[#8d60e8] to-[#7943d7] text-white font-medium text-sm md:text-2xl ">
               No. 1 Job Hunt Website
             </span>
             <h1 className="text-3xl md:text-6xl">
