@@ -14,7 +14,9 @@ import Navbar from "./shared/Navbar";
 
 const AppliedJobTable = () => {
   const { allAppliedJobs } = useSelector((store) => store.job);
+  console.log(allAppliedJobs); // Add this before returning JSX
 
+  // Check if there are no applied jobs
   if (!allAppliedJobs || allAppliedJobs.length === 0) {
     return <span>You did not apply for any job yet.</span>;
   }
@@ -34,34 +36,26 @@ const AppliedJobTable = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {allAppliedJobs.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={4}>
-                  You did not apply for any job yet.
+            {allAppliedJobs.map((appliedJob) => (
+              <TableRow key={appliedJob._id}>
+                <TableCell>{appliedJob?.createdAt?.split("T")[0]}</TableCell>
+                <TableCell>{appliedJob?.job?.title}</TableCell>
+                <TableCell>{appliedJob.job?.company?.name}</TableCell>
+                <TableCell className="text-right">
+                  <Badge
+                    className={`${
+                      appliedJob?.status === "rejected"
+                        ? "bg-red-400"
+                        : appliedJob.status === "pending"
+                        ? "bg-gray-400"
+                        : "bg-green-400"
+                    }`}
+                  >
+                    {appliedJob.status.toUpperCase()}
+                  </Badge>
                 </TableCell>
               </TableRow>
-            ) : (
-              allAppliedJobs.map((appliedJob) => (
-                <TableRow key={appliedJob._id}>
-                  <TableCell>{appliedJob?.createdAt?.split("T")[0]}</TableCell>
-                  <TableCell>{appliedJob?.job?.title}</TableCell>
-                  <TableCell>{appliedJob.job?.company?.name}</TableCell>
-                  <TableCell className="text-right">
-                    <Badge
-                      className={`${
-                        appliedJob?.status === "rejected"
-                          ? "bg-red-400"
-                          : appliedJob.status === "pending"
-                          ? "bg-gray-400"
-                          : "bg-green-400"
-                      }`}
-                    >
-                      {appliedJob.status.toUpperCase()}
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
+            ))}
           </TableBody>
         </Table>
       </div>

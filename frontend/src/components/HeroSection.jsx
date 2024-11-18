@@ -44,8 +44,8 @@ const HeroSection = () => {
               </span>
             </h1>
             <p className="text-lg text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              aspernatur temporibus nihil tempora dolor!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+              Aliquid aspernatur temporibus nihil tempora dolor!
             </p>
           </div>
 

@@ -22,13 +22,14 @@ const ApplicantsTable = ({ applicants }) => {
       axios.defaults.withCredentials = true;
       const res = await axios.post(
         `${APPLICATION_API_END_POINT}/status/${id}/update`,
-        JSON.stringify({ status }),
+        { status },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
       if (res.data.success) {
         toast.success(res.data.message);
+        console.log("Response Data:", res.data);
       }
     } catch (error) {
       console.error("Error updating status:", error);

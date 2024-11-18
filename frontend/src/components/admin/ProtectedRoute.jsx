@@ -2,30 +2,20 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const ProtectedRoute = ({
-  children,
-  requiredRole,
-  requireAppliedJobs = false,
-}) => {
+const ProtectedRoute = ({ children }) => {
   const { user } = useSelector((store) => store.auth);
-  const { allAppliedJobs } = useSelector((store) => store.job);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (
-      !user ||
-      user.role !== requiredRole ||
-      (requireAppliedJobs && allAppliedJobs.length === 0)
+      user === null ||
+      !(user.role === "applicant" || user.role === "recruiter")
     ) {
       navigate("/");
     }
-  }, [user, requiredRole, requireAppliedJobs, allAppliedJobs, navigate]);
+  }, [user, navigate]);
 
-  return user &&
-    user.role === requiredRole &&
-    (!requireAppliedJobs || allAppliedJobs.length > 0) ? (
-    <>{children}</>
-  ) : null;
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

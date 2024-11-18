@@ -9,9 +9,10 @@ import {
 
 const router = express.Router();
 
-router.route("/apply/:id").get(isAuthenticated, applyJob);
-router.route("/get").get(isAuthenticated, getAppliedJobs);
-router.route("/:id/applicants").get(isAuthenticated, getApplicants);
-router.route("/status/:id/update").post(isAuthenticated, updateStatus);
+// Correct HTTP methods
+router.route("/apply/:id").post(isAuthenticated, applyJob); // POST for applying
+router.route("/get").get(isAuthenticated, getAppliedJobs); // GET for fetching applied jobs
+router.route("/:id/applicants").get(isAuthenticated, getApplicants); // GET for fetching applicants
+router.route("/status/:id/update").post(isAuthenticated, updateStatus); // POST for updating status
 
 export default router;

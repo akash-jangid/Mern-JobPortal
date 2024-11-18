@@ -38,7 +38,7 @@ const LatestJobCards = ({ job }) => {
       </div>
 
       <Button
-        className="mt-auto w-full bg-black text-white hover:bg-[#66298f] hover:text-grey-500"
+        className="mt-auto w-full bg-[#6A38C2] text-white hover:text-white hover:bg-[#5a2f99]  transition duration-300"
         onClick={() => navigate(`/description/${job._id}`)}
       >
         Detail

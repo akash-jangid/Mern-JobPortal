@@ -8,10 +8,13 @@ import userRoutes from "./routes/user.route.js";
 import companyRoutes from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
+import path from "path";
 
 dotenv.config();
 
 const app = express();
+
+const _dirname = path.resolve();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +30,11 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/company", companyRoutes);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
+});
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, async () => {

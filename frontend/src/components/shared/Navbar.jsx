@@ -3,7 +3,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { LogOut, User2, Menu } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setUser } from "../../redux/authSlice";
@@ -12,6 +12,7 @@ import { USER_API_END_POINT } from "../../../utils/constant";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
+  const { jobId } = useParams;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,7 +62,10 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admin/applicants" className="hover:text-[#6A38C2]">
+                  <Link
+                    to={`/admin/jobs/${jobId}/applicants`}
+                    className="hover:text-[#6A38C2]"
+                  >
                     Applicants
                   </Link>
                 </li>

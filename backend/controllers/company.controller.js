@@ -112,7 +112,7 @@ export const updateCompany = async (req, res) => {
 
       if (cloudResponse && cloudResponse.secure_url) {
         logo = cloudResponse.secure_url;
-        console.log("Cloudinary upload response:", cloudResponse);
+        //console.log("Cloudinary upload response:", cloudResponse);
       } else {
         console.error(
           "Error: Cloudinary upload response does not contain secure_url"
@@ -133,7 +133,7 @@ export const updateCompany = async (req, res) => {
         new: true,
       }
     );
-    console.log("Updated company:", updatedCompany);
+    //console.log("Updated company:", updatedCompany);
     return res.status(200).json({
       message: "Company information updated successfully.",
       success: true,
