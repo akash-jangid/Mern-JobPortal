@@ -1,7 +1,7 @@
 # MERN Job Portal
 
 <a href="https://mern-jobportal-1-sfpm.onrender.com/">
-  <img src="https://img.icons8.com/ios-filled/30/0000FF/link.png" alt="Link Icon" style="vertical-align: middle;"/> <span>:</span>[**Project Link**](https://mern-jobportal-1-sfpm.onrender.com/)
+  <img src="https://img.icons8.com/ios-filled/30/0000FF/link.png" alt="Link Icon" style="vertical-align: middle;"/> <span>:MERN JOB PORTAL</span>
 </a> 
 
 
