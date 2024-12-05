@@ -4,7 +4,7 @@
   <img src="https://img.icons8.com/ios-filled/30/0000FF/link.png" alt="Link Icon" style="vertical-align: middle;"/> <span>:MERN JOB PORTAL</span>
 </a> 
 
-
+<br/>
 
 This **MERN Job Portal** is a personal project built to showcase my skills and expertise in web development. It is designed as a comprehensive platform where recruiters and job seekers can connect, post, and apply for jobs. The project demonstrates my proficiency in the **MERN stack** (MongoDB, Express.js, React.js, Node.js) and other modern web technologies.
 
